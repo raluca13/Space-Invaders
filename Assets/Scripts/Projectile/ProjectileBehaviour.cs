@@ -31,5 +31,6 @@ public class ProjectileBehaviour : MonoBehaviour
     {
 		// Destroy the game object this script is on (the projectile game object)
         Destroy(gameObject);
+        
     }
 }

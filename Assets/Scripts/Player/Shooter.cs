@@ -7,10 +7,12 @@ public class Shooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
 
+    public AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,5 +31,6 @@ public class Shooter : MonoBehaviour
 		// When the instance is created, position at the same location where the player currently is (by copying their transform.position),
 		// and don't rotate the instance at all - let it keep its "identity" rotation
         Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
+        audio.Play();
     }
 }
