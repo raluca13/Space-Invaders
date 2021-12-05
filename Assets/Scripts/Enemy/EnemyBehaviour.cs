@@ -6,9 +6,13 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-    // Start is called before the first frame update
+
+    
+
+        // Start is called before the first frame update
     void Start()
     {
+
         
     }
 
@@ -27,9 +31,22 @@ public class EnemyBehaviour : MonoBehaviour
         if (otherCollider.tag == "Projectile")
         {
             Destroy(gameObject);
-			
-			// Get the game object, as a whole, that's attached to the Collider2D component
+            ScoreScript.scoreValue += 1;
+
+            //CALLING EXPLOSION SOUND
+
+
+
+
+
+
+
+            // Get the game object, as a whole, that's attached to the Collider2D component
             Destroy(otherCollider.gameObject);
+
+         
+
+
         }
     }
 }

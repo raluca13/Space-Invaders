@@ -5,6 +5,8 @@ using UnityEngine;
 // This script controls the behaviour of the projectile game object
 public class ProjectileBehaviour : MonoBehaviour
 {
+
+
 	// How fast will the project travel
     public float speed;
 	
@@ -14,6 +16,7 @@ public class ProjectileBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
 		// Call the DestroyProjectile function (note its written as string, this is how Invoke takes its parameter)
 		// after a specific amount of time (seconds) set by the destroyAfter variable
         Invoke("DestroyProjectile", destroyAfter);
@@ -29,7 +32,8 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void DestroyProjectile()
     {
-		// Destroy the game object this script is on (the projectile game object)
+        // Destroy the game object this script is on (the projectile game object)
+       
         Destroy(gameObject);
     }
 }
