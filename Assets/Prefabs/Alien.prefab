@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a08ceecdfb38ea469495665b36fe552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  killAliens: {fileID: 8300000, guid: 189dbc72293b68446b7556b3e42019cf, type: 3}
 --- !u!50 &-6034247565746261748
 Rigidbody2D:
   serializedVersion: 4
