@@ -6,8 +6,12 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public float projectileRange; 
+
+    public bool powerUpCollected; 
 
     public AudioSource audio;
+    public AudioClip collectSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,43 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    // A function automatically triggerred when another game object with Collider2D component
+    // Enters the Collider2D boundaries on this game object
+    private void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        // Check the tag on the other game object. If it's the powerUp's tag,
+        //  set powerUpCollected boolean on true and destroy the powerUp 
+        if (otherCollider.tag == "PowerUp")
+        {
+            powerUpCollected = true; 
+            audio.PlayOneShot(collectSFX);
+
+            // Get the game object, as a whole, that's attached to the Collider2D component
+            Destroy(otherCollider.gameObject);
+        }
+    }
+
     void Shoot()
     {
-		// Create an instance of the GameObject referenced by the projectilePrefab variable
-		// When the instance is created, position at the same location where the player currently is (by copying their transform.position),
-		// and don't rotate the instance at all - let it keep its "identity" rotation
-        Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
-        audio.Play();
+        // Create an instance of the GameObject referenced by the projectilePrefab variable
+        // When the instance is created, position at the same location where the player currently is (by copying their transform.position),
+        // and don't rotate the instance at all - let it keep its "identity" rotation
+
+        //Calcute the position of the left and the right projectile
+        Vector3 leftProjectile = new Vector3(gameObject.transform.position.x - projectileRange, gameObject.transform.position.y, 0);
+        Vector3 rightProjectile = new Vector3(gameObject.transform.position.x + projectileRange, gameObject.transform.position.y, 0);
+
+        if (powerUpCollected)
+        {
+            Instantiate(projectilePrefab, leftProjectile, Quaternion.identity);
+            Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
+            Instantiate(projectilePrefab, rightProjectile, Quaternion.identity);
+            audio.Play();
+        } 
+        else
+        {
+            Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
+            audio.Play();
+        }
     }
 }

@@ -141,7 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3076183288201087822, guid: c27fc9ce07892a84aa9d17c69a6e850a, type: 3}
+  projectileRange: 0.25
+  powerUpCollected: 0
   audio: {fileID: 0}
+  collectSFX: {fileID: 0}
 --- !u!82 &109446618
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1645,6 +1648,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4093947469185693742, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
+      propertyPath: m_Size.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -4093947469185693742, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1888678373, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
       propertyPath: moveSpeed
       value: 5
