@@ -7,12 +7,11 @@ public class EnemyBehaviour : MonoBehaviour
 {
 
 
-    
-
+        
         // Start is called before the first frame update
     void Start()
     {
-
+        
         
     }
 
@@ -30,10 +29,13 @@ public class EnemyBehaviour : MonoBehaviour
 		//  destroy both this game object and the projectile
         if (otherCollider.tag == "Projectile")
         {
+
             Destroy(gameObject);
+
+            //Adding 1 point when the gameobject destroyed. 
             ScoreScript.scoreValue += 1;
 
-            //CALLING EXPLOSION SOUND
+            
 
 
 
@@ -42,9 +44,10 @@ public class EnemyBehaviour : MonoBehaviour
 
 
             // Get the game object, as a whole, that's attached to the Collider2D component
+
             Destroy(otherCollider.gameObject);
 
-         
+        
 
 
         }

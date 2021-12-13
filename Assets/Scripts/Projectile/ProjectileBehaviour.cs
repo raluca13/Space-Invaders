@@ -5,7 +5,7 @@ using UnityEngine;
 // This script controls the behaviour of the projectile game object
 public class ProjectileBehaviour : MonoBehaviour
 {
-
+    
 
 	// How fast will the project travel
     public float speed;
@@ -33,7 +33,7 @@ public class ProjectileBehaviour : MonoBehaviour
     void DestroyProjectile()
     {
         // Destroy the game object this script is on (the projectile game object)
-       
+        
         Destroy(gameObject);
     }
 }
