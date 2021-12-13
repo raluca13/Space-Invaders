@@ -5,7 +5,8 @@ using UnityEngine;
 // This script controls the behaviour of each single Alien enemy
 public class EnemyBehaviour : MonoBehaviour
 {
-
+    //Enemy number of hits needed to be destroyed
+    public int numberOfHits = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +27,15 @@ public class EnemyBehaviour : MonoBehaviour
 		//  destroy both this game object and the projectile
         if (otherCollider.tag == "Projectile")
         {
-            Destroy(gameObject);
-			
-			// Get the game object, as a whole, that's attached to the Collider2D component
+            numberOfHits--;
+            if (numberOfHits == 0)
+            {
+                Destroy(gameObject);
+
+               
+            }
+            
+            // Get the game object, as a whole, that's attached to the Collider2D component
             Destroy(otherCollider.gameObject);
         }
     }

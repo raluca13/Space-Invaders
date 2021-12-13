@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get the main camera reference from the Camera class
         mainCamera = Camera.main;
-
+        
         // Calculate the half-width from the player's image boundaries along the horizontal x-axis. The bounds are the total width so we split them in 2
         playerHalfWidth = playerImage.bounds.size.x * 0.5f;
 
