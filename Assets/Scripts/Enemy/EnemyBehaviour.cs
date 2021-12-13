@@ -5,6 +5,8 @@ using UnityEngine;
 // This script controls the behaviour of each single Alien enemy
 public class EnemyBehaviour : MonoBehaviour
 {
+    public GameObject powerUpPrefab;
+    
     public AudioSource audio;
     public AudioClip destroySFX;
 
@@ -28,6 +30,13 @@ public class EnemyBehaviour : MonoBehaviour
 		//  destroy both this game object and the projectile
         if (otherCollider.tag == "Projectile")
         {
+
+            // Random Generator ensures that a powerUp is dropped with a 20% chance. 
+            if (Random.Range(1, 6) == 1)
+            {
+                Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
+            }
+
             audio.PlayOneShot(destroySFX);
             Destroy(gameObject);
 			
