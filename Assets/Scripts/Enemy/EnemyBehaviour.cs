@@ -37,7 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
                 Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
             }
 
-            audio.PlayOneShot(destroySFX);
+            //audio.PlayOneShot(destroySFX);
             Destroy(gameObject);
 			
 			// Get the game object, as a whole, that's attached to the Collider2D component
