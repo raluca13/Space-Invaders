@@ -8,7 +8,8 @@ public class Shooter : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileRange; 
 
-    public bool powerUpCollected; 
+    private bool powerUpCollected;
+    public float powerUpTime = 5; 
 
     public AudioSource audio;
     public AudioClip collectSFX;
@@ -40,12 +41,15 @@ public class Shooter : MonoBehaviour
             powerUpCollected = true; 
             audio.PlayOneShot(collectSFX);
 
+            //Expects an IEnumerator and starts a coroutine (timed process) 
+            StartCoroutine(TimerForPowerUp());
+
             // Get the game object, as a whole, that's attached to the Collider2D component
             Destroy(otherCollider.gameObject);
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         // Create an instance of the GameObject referenced by the projectilePrefab variable
         // When the instance is created, position at the same location where the player currently is (by copying their transform.position),
@@ -67,5 +71,14 @@ public class Shooter : MonoBehaviour
             Instantiate(projectilePrefab, gameObject.transform.position, Quaternion.identity);
             audio.Play();
         }
+        
+    }
+
+    //Sets timer for the PowerUp based on the powerUpTime Variable.
+    //After the time is up, the powerUpCollected is reset to false. 
+    private IEnumerator TimerForPowerUp()
+    {
+        yield return new WaitForSeconds(powerUpTime);
+        powerUpCollected = false;
     }
 }
