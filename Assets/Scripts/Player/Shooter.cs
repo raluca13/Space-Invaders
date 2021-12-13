@@ -41,7 +41,7 @@ public class Shooter : MonoBehaviour
             powerUpCollected = true; 
             audio.PlayOneShot(collectSFX);
 
-            //Expects an IEnumerator and starts a coroutine (timed process) 
+            //Expects an IEnumerator and starts a coroutine (timed process). 
             StartCoroutine(TimerForPowerUp());
 
             // Get the game object, as a whole, that's attached to the Collider2D component

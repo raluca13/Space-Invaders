@@ -32,7 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
 
             // Random Generator ensures that a powerUp is dropped with a 20% chance. 
-            if (Random.Range(1, 6) == 1)
+            if (Random.Range(1, 11) == 1)
             {
                 Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
             }
