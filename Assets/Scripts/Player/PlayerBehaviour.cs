@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public GameObject losingScreen; 
+
     public AudioSource audio;
     public AudioClip destroySFX;
 
@@ -27,6 +29,9 @@ public class PlayerBehaviour : MonoBehaviour
         //  destroy both this game object and the projectile
         if (otherCollider.tag == "EnemyProjectile")
         {
+
+            losingScreen.SetActive(true);
+
             //audio.PlayOneShot(destroySFX);
             Destroy(gameObject);
 
