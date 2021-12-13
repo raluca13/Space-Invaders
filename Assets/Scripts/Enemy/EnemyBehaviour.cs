@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject powerUpPrefab;
+    public int enemyHealth; 
+
     
     public AudioSource audio;
     public AudioClip destroySFX;
@@ -30,18 +32,24 @@ public class EnemyBehaviour : MonoBehaviour
 		//  destroy both this game object and the projectile
         if (otherCollider.tag == "Projectile")
         {
+            //Enemy health is reduced after being hit
+            enemyHealth -= 1; 
 
-            // Random Generator ensures that a powerUp is dropped with a 20% chance. 
-            if (Random.Range(1, 11) == 1)
+            if (enemyHealth <= 0)
             {
-                Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
-            }
+                // Random Generator ensures that a powerUp is dropped with a 20% chance. 
+                if (Random.Range(1, 11) == 1)
+                {
+                    Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
+                }
 
-            //audio.PlayOneShot(destroySFX);
-            Destroy(gameObject);
-			
-			// Get the game object, as a whole, that's attached to the Collider2D component
-            Destroy(otherCollider.gameObject);
+                //audio.PlayOneShot(destroySFX);
+                Destroy(gameObject);
+
+                // Get the game object, as a whole, that's attached to the Collider2D component
+                Destroy(otherCollider.gameObject);
+            }  
         }
     }
+
 }

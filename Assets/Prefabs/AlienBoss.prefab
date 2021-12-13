@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1691895441051581899}
   - component: {fileID: 9138751449845224779}
   - component: {fileID: -6034247565746261748}
+  - component: {fileID: -5925315259193485020}
   m_Layer: 0
   m_Name: AlienBoss
   m_TagString: Untagged
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpPrefab: {fileID: 4636870923465169382, guid: 908cdeacc86f6e94e80e316fc22d996a, type: 3}
+  enemyHealth: 10
   audio: {fileID: 0}
   destroySFX: {fileID: 8300000, guid: ce87d91b0f5b8b84eb79b0c091ed3e58, type: 3}
 --- !u!50 &-6034247565746261748
@@ -147,3 +149,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5925315259193485020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871865298318731700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada815fe712eae342ab0e6527464ce54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 0}
+  isBoss: 1
+  audio: {fileID: 0}
+  collectSFX: {fileID: 0}

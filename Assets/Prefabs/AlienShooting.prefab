@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpPrefab: {fileID: 4636870923465169382, guid: 908cdeacc86f6e94e80e316fc22d996a, type: 3}
+  enemyHealth: 5
   audio: {fileID: 0}
   destroySFX: {fileID: 8300000, guid: ce87d91b0f5b8b84eb79b0c091ed3e58, type: 3}
 --- !u!50 &-6034247565746261748
@@ -161,5 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3076183288201087822, guid: 501df969ba589ce46943d8493a792b06, type: 3}
+  isBoss: 0
   audio: {fileID: 0}
   collectSFX: {fileID: 0}
