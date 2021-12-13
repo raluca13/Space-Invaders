@@ -8,14 +8,14 @@ public class EnemyController : MonoBehaviour
     public GameObject[] enemies;
 
     // The min and max limits on the horizontal X-axis where this game object can move within
-    public float minPosX;
-    public float maxPosX;
+    public float minPosX = -2.3f;
+    public float maxPosX = 2.3f;
 
     // How far to move per one step
-    public float moveDistance;
+    public float moveDistance = 1.25f;
 
     // How much time interval between one motion and the next
-    public float timeStep;
+    public float timeStep = 1f;
 
     // A boolean to check which direction the game object is currently moving
     private bool isMovingRight = true;
