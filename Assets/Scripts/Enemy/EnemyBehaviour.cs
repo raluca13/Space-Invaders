@@ -7,10 +7,14 @@ public class EnemyBehaviour : MonoBehaviour
 {
     //Enemy number of hits needed to be destroyed
     public int numberOfHits = 2;
+    public AudioSource audio;
+    public AudioClip damageSFX;
+    public AudioClip destroySFX;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -28,8 +32,13 @@ public class EnemyBehaviour : MonoBehaviour
         if (otherCollider.tag == "Projectile")
         {
             numberOfHits--;
+            if(numberOfHits >= 1)
+            {
+                audio.PlayOneShot(damageSFX);
+            }
             if (numberOfHits == 0)
             {
+                audio.PlayOneShot(destroySFX);
                 Destroy(gameObject);
 
                
