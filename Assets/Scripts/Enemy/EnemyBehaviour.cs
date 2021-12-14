@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     public AudioSource audio;
     public AudioClip damageSFX;
     public AudioClip destroySFX;
+    public Sprite damageSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -31,21 +33,33 @@ public class EnemyBehaviour : MonoBehaviour
 		//  destroy both this game object and the projectile
         if (otherCollider.tag == "Projectile")
         {
+            //Decrease the health of the enemy
             numberOfHits--;
+            //Check if the enemy is not destoryed
             if(numberOfHits >= 1)
             {
+                //Play the take damage SFX
                 audio.PlayOneShot(damageSFX);
+                //Change the image sprite of the enemy
+                showSprite(damageSprite);
             }
+            //If the enemy doesn't have any health left 
             if (numberOfHits == 0)
             {
+                //Play the destruction SFX
                 audio.PlayOneShot(destroySFX);
                 Destroy(gameObject);
-
                
             }
             
             // Get the game object, as a whole, that's attached to the Collider2D component
             Destroy(otherCollider.gameObject);
         }
+    }
+
+    //You pass the image sprite that you want to dispaly
+    private void showSprite(Sprite imageSprite)
+    {
+        GetComponent<SpriteRenderer>().sprite = imageSprite;
     }
 }
