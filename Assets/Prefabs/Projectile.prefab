@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445aebb8f3bbc41498764aa8692e7a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tickSource: {fileID: 0}
   speed: 4
   destroyAfter: 4
 --- !u!82 &-598391393974369852

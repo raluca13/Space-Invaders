@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
-
+    //Creating variable with 0 value.
     public static int scoreValue = 0;
+
+    //Text score variable to connect it with scoretext gameobject.
     Text score;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         score = GetComponent<Text>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         score.text = "Score: " + scoreValue;

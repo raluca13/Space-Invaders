@@ -32,7 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
 
             Destroy(gameObject);
 
-            //Adding 1 point when the gameobject destroyed. 
+            //Increasing score value by 1. 
             ScoreScript.scoreValue += 1;
 
             
