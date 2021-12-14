@@ -25,6 +25,7 @@ public class ProjectileBehaviour : MonoBehaviour
 		// As soon as the projectile is instantiated in the game scene, transform.Translate will start
 		// moving it up one unit, multiplied by the speed and Time.deltaTime for cpu optimisation
         transform.Translate(Vector2.up * speed * Time.deltaTime);
+
     }
 
     void DestroyProjectile()

@@ -6,11 +6,12 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    private AudioSource mAudioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mAudioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class Shooter : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Shoot();
+            mAudioSrc.Play();
         }
     }
 
