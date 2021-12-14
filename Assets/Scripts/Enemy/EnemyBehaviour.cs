@@ -6,8 +6,10 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject powerUpPrefab;
-    public int enemyHealth; 
+    public Spawner spawnerReference; 
+    public int enemyHealth;
 
+    private bool isAlive = true; 
     
     public AudioSource audio;
     public AudioClip destroySFX;
@@ -30,24 +32,29 @@ public class EnemyBehaviour : MonoBehaviour
     {
 		// Check the tag on the other game object. If it's the projectile's tag,
 		//  destroy both this game object and the projectile
-        if (otherCollider.tag == "Projectile")
+        if (otherCollider.tag == "Projectile" && isAlive)
         {
             //Enemy health is reduced after being hit
-            enemyHealth -= 1; 
+            enemyHealth -= 1;
+
+            // Get the game object, as a whole, that's attached to the Collider2D component
+            Destroy(otherCollider.gameObject);
 
             if (enemyHealth <= 0)
             {
+                isAlive = false; 
+
                 // Random Generator ensures that a powerUp is dropped with a 20% chance. 
-                if (Random.Range(1, 11) == 1)
+                if (Random.Range(1, 6) == 1)
                 {
                     Instantiate(powerUpPrefab, gameObject.transform.position, Quaternion.identity);
                 }
 
+                //Before the enemy is destroyed, the enemy Counter of the spawner is reduced. 
+                spawnerReference.ReduceEnemies();
+
                 //audio.PlayOneShot(destroySFX);
                 Destroy(gameObject);
-
-                // Get the game object, as a whole, that's attached to the Collider2D component
-                Destroy(otherCollider.gameObject);
             }  
         }
     }

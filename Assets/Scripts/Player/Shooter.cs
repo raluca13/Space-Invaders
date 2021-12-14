@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public float projectileRange; 
+    public float projectileRange;
 
     private bool powerUpCollected;
     public float powerUpTime = 5; 
